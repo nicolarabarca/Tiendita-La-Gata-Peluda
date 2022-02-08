@@ -19,10 +19,7 @@
     />
     <!-- Cierre Bootstrap@5.1.3 CSS -->
 
-    <script
-      src="https://kit.fontawesome.com/e72ea05806.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/e72ea05806.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
     <title>Papeleria La Gata pelúa</title>
@@ -84,11 +81,36 @@
     <section">
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
-        <h5 id="offcanvasRightLabel">Carrito de compras</h5>
+        <h5 id="offcanvasRightLabel" class="pt-4 ">Carrito de compras</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-      
+        <table class="table">
+          
+            <hr>
+          
+          <tbody>
+            <tr>
+              <th scope="row"><i class="fa-solid fa-circle-check text-muted  mt-4"></i></th>
+              <td ><img class="w-75 h-75 " src="assets/img/lapicesconejo.png" alt="Foto lapices conejo"></td>
+              <td class="pe-5 "> <p> Lapices Alpaca</p> <input class="w-100 text-center border border-dark" type="number" min="1" value="1"></td>
+              <td class="pt-4 text-center"><p>$1.990</p> <button><i class="fa-regular fa-trash-can  text-muted"></i></button></td>
+            </tr>
+            <tr >
+              <th  scope="row"><i class="fa-solid fa-circle-check ps-3 text-muted"></i></th>
+              <td ><p>Total</p> </td>
+            <td></td>
+              <td class="text-end"><p>$1.990</p> </td>
+            </tr>
+            
+          
+          </tbody>
+          
+        </table>
+        <div class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-secondary" type="button">Comprar</button>
+  
+</div>
       </div>
     </div>
   </section>
@@ -579,6 +601,7 @@
             <a href="#"><i class="fab fa-linkedin fa-3x mx-2 text-muted "></i></a>
             <a href="#"><i class="fab fa-twitter-square fa-3x mx-2 text-muted "></i></a>
             <a href="#"><i class="fab fa-facebook-square fa-3x mx-2 text-muted "></i></a>
+            
           </div>
           </div>
           </div>
