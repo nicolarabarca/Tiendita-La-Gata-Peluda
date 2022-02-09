@@ -10,6 +10,7 @@ $(document).ready(function () {
     );
   });
 });
+
 // Captura datos de formulario de contacto
 function enviar() {
   class Persona {
