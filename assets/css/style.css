@@ -56,16 +56,24 @@ footer a {
   .collapse {
     margin-left: -2rem;
     margin-right: -2rem;
+    background-color: pink;
   }
 }
 @media (min-width: 767px) {
   .collapse {
     margin-left: -3rem;
     margin-right: -3rem;
+    background-color: pink;
   }
 }
 
 @media (min-width: 991px) {
+  .collapse {
+    margin-top: -2.45rem;
+    margin-left: 19rem;
+    margin-right: -2rem;
+    background-color: pink;
+  }
   .navbar-brand {
     width: 200px;
   }
