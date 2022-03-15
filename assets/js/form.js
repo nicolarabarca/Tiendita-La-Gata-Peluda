@@ -7,8 +7,8 @@ buttonSend.addEventListener("click", post, false);
 // Captura datos de formulario de contacto
 function post() {
   class Person {
-    constructor(name, lastName, mail, comment) {
-      this.name = name;
+    constructor(firstName, lastName, mail, comment) {
+      this.name = firstName;
       this.lastName = lastName;
       this.mail = mail;
       this.comment = comment;
@@ -22,6 +22,7 @@ function post() {
   }
   divPerson = document.getElementById("prueba");
   firstName = document.getElementById("getName").value;
+  console.log(firstName);
   lastName = document.getElementById("getLastName").value;
   mail = document.getElementById("getMail").value;
   comment = document.getElementById("getComment").value;
@@ -36,7 +37,7 @@ function addData() {
   divPerson.innerHTML += `
     <div id="personDiv" >
     <img style="width: 5rem; m-auto  " src="assets/img/gatapelualogo1.png" alt="Logo La Gata Pelúa" /
-        <div ><h4> Hola  ${capturePerson.firstName} Pronto nos pondremos en contacto contigo al correo ${capturePerson.mail}</h4></div>
+        <div ><h4> Hola Pronto nos pondremos en contacto contigo al correo ${capturePerson.mail}</h4></div>
             <div >
                 <button id="boton" class="btn btn-danger">Eliminar</button>
             </div>
@@ -89,7 +90,7 @@ function validateForm(event) {
       text: "Debes aceptar terminos y condiciones",
       position: "center", // `left`, `center` or `right`
       style: {
-        background: "hsl(330, 73%, 68%)",
+        background: "hsl(325, 2%, 57%)",
       },
       duration: 3000,
     }).showToast();
