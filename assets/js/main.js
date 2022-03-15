@@ -37,9 +37,19 @@ cards.addEventListener("click", (e) => {
 });
 // añadir  productos  al carrito.
 function addShoppingCart(e) {
-  e.target.matches(".card .btn-secondary")
-    ? setShoppingCart(e.target.parentElement)
-    : e.stopPropagation();
+  if (e.target.matches(".card .btn-secondary")) {
+    setShoppingCart(e.target.parentElement);
+    Toastify({
+      text: "Se añadio el producto al carrito",
+      position: "center", // `left`, `center` or `right`
+      style: {
+        background: "hsl(325, 2%, 57%)",
+      },
+      duration: 3000,
+    }).showToast();
+  } else {
+    e.stopPropagation();
+  }
 }
 //Pintar productos en carrito
 function setShoppingCart(object) {

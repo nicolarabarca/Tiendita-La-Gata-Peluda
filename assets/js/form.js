@@ -22,7 +22,6 @@ function post() {
   }
 
   firstName = document.getElementById("getName").value;
-  console.log(firstName);
   lastName = document.getElementById("getLastName").value;
   mail = document.getElementById("getMail").value;
   comment = document.getElementById("getComment").value;
@@ -64,16 +63,40 @@ function validateForm(event) {
   let validateName = firstName;
   if (validateName.length == 0) {
     document.getElementById("getName").focus();
+    Toastify({
+      text: "No olvides ingresar tu Nombre :D",
+      position: "center", // `left`, `center` or `right`
+      style: {
+        background: "hsl(325, 2%, 57%)",
+      },
+      duration: 3000,
+    }).showToast();
     return;
   }
   let validateLastName = lastName;
   if (validateLastName.length == 0) {
     document.getElementById("getLastName").focus();
+    Toastify({
+      text: "Upss no ingresaste tu Apellido",
+      position: "center", // `left`, `center` or `right`
+      style: {
+        background: "hsl(325, 2%, 57%)",
+      },
+      duration: 3000,
+    }).showToast();
     return;
   }
   let validateLastMail = mail;
   if (validateLastMail.length == 0) {
     document.getElementById("getMail").focus();
+    Toastify({
+      text: "No olvides ingresar tu Correo Electrónico",
+      position: "center", // `left`, `center` or `right`
+      style: {
+        background: "hsl(325, 2%, 57%)",
+      },
+      duration: 3000,
+    }).showToast();
     return;
   }
 
@@ -85,7 +108,7 @@ function validateForm(event) {
   } else {
     //Ingresa en esta parte del ciclo cuando se hace click en boton enviar sin aceptar terminos
     Toastify({
-      text: "Debes aceptar terminos y condiciones",
+      text: "Ya casi!! Debes aceptar terminos y condiciones",
       position: "center", // `left`, `center` or `right`
       style: {
         background: "hsl(325, 2%, 57%)",
