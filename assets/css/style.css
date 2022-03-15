@@ -42,6 +42,10 @@ hr {
 .card img {
   object-fit: cover;
 }
+.btn-danger {
+  background-color: pink;
+  border: pink;
+}
 footer {
   background-color: pink;
 }

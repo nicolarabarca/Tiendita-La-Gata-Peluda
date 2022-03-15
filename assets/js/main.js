@@ -1,55 +1,109 @@
-// Función que permite controlar el desplazamiento del smooth scroll
-$(document).ready(function () {
-  $("a").click(function () {
-    var slowerScroll = this.hash;
-    $("html,body").animate(
-      {
-        scrollTop: $(slowerScroll).offset().top - 70,
-      },
-      3000
-    );
+const fragment = document.createDocumentFragment();
+const templateCard = document.getElementById("template-card").content;
+const templateTotal = document.getElementById("template-total").content;
+const items = document.getElementById("items");
+const total = document.getElementById("printTotal");
+const templateShoppingCart = document.getElementById(
+  "template-ShoppingCart"
+).content;
+let shoppingCart = {};
+
+// Se pintan en pantalla cada producto con su descripción y precio
+fetch("assets/js/data.json")
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((arrayDataProducts) => {
+      templateCard.querySelector("button").dataset.id = arrayDataProducts.id;
+      templateCard.querySelector("h5").textContent = arrayDataProducts.name;
+
+      templateCard.querySelector("h6").textContent = arrayDataProducts.price;
+      templateCard.querySelector("p").textContent =
+        arrayDataProducts.description;
+
+      templateCard
+        .querySelector("img")
+        .setAttribute("src", arrayDataProducts.img);
+      const clone = templateCard.cloneNode(true);
+
+      fragment.appendChild(clone);
+
+      cards.appendChild(fragment);
+    });
   });
+
+// separa  el evento click de los botones añadir mesa
+cards.addEventListener("click", (e) => {
+  addShoppingCart(e);
 });
-
-// Captura datos de formulario de contacto
-function enviar() {
-  class Persona {
-    constructor(nombre, apellido, correo, escribe) {
-      this.nombre = nombre;
-      this.apellido = apellido;
-      this.correo = correo;
-      this.escribe = escribe;
-    }
+// añadir  productos  al carrito.
+function addShoppingCart(e) {
+  e.target.matches(".card .btn-secondary")
+    ? setShoppingCart(e.target.parentElement)
+    : e.stopPropagation();
+}
+//Pintar productos en carrito
+function setShoppingCart(object) {
+  const product = {
+    id: object.querySelector(".card .btn-secondary").dataset.id,
+    name: object.querySelector("h5").textContent,
+    price: object.querySelector("h6").textContent,
+    quantity: 1,
+  };
+  // Si el producto existe se aumenta producto en cantidad
+  if (shoppingCart.hasOwnProperty(product.id)) {
+    product.quantity = shoppingCart[product.id].quantity + 1;
   }
-  var capturarNombre = document.getElementById("nombre").value;
-  var capturarApellido = document.getElementById("apellido").value;
-  var capturarCorreo = document.getElementById("correo").value;
-  var capturarMensaje = document.getElementById("escribe").value;
+  shoppingCart[product.id] = { ...product }; // se copia el objeto product
+  printShoppingCart();
+}
 
-  capturarUsuario = new Persona(
-    capturarNombre,
-    capturarApellido,
-    capturarCorreo,
-    capturarMensaje
+// Se imprime en carrito data de productos seleccionados
+const printShoppingCart = () => {
+  items.innerHTML = "";
+
+  Object.values(shoppingCart).forEach((product) => {
+    //Se accede a los valores del objeto
+    templateShoppingCart.querySelector("th").textContent = product.id;
+    templateShoppingCart.querySelectorAll("td")[0].textContent = product.name;
+    templateShoppingCart.querySelectorAll("td")[1].textContent =
+      product.quantity;
+    templateShoppingCart.querySelector("span").textContent =
+      product.price * product.quantity;
+
+    //botones aumentar o disminuir cantidad de algun producto seleccionado
+    templateShoppingCart.querySelector(".btn-secondary").dataset.id =
+      product.id;
+    templateShoppingCart.querySelector(".btn-danger").dataset.id = product.id;
+
+    const clone = templateShoppingCart.cloneNode(true);
+    fragment.appendChild(clone);
+  });
+  items.appendChild(fragment);
+
+  printTotal();
+};
+//Función para imprimir total de suma de productos seleccionados para comprar
+const printTotal = () => {
+  total.innerHTML = "";
+  if (Object.keys(shoppingCart).length === 0) {
+    total.innerHTML = `
+    <th scope="row" colspan="5">Tu Carrito esta vacío</th>
+    `;
+    return;
+  }
+
+  const totalQuantity = Object.values(shoppingCart).reduce(
+    (collector, { quantity }) => collector + quantity,
+    0
   );
+  const totalPrice = Object.values(shoppingCart).reduce(
+    (collector, { quantity, price }) => collector + quantity * price,
+    0
+  );
+  templateTotal.querySelectorAll("td")[0].textContent = totalQuantity;
+  templateTotal.querySelector("span").textContent = totalPrice;
+  const clone = templateTotal.cloneNode(true);
+  fragment.appendChild(clone);
 
-  agregar();
-}
-//Crear  array con push y variable capturarUsuario
-var baseDatos = [];
-function agregar() {
-  baseDatos.push(capturarUsuario);
-  document.getElementById("prueba").innerHTML +=
-    "<p>" +
-    capturarUsuario.nombre +
-    "</p>" +
-    "<p>" +
-    capturarUsuario.apellido +
-    "</p>" +
-    "<p>" +
-    capturarUsuario.correo +
-    "</p>" +
-    "<p>" +
-    capturarUsuario.escribe +
-    "</p>";
-}
+  total.appendChild(fragment);
+};

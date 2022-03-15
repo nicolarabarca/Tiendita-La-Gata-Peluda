@@ -1,0 +1,59 @@
+[
+  {
+    "id": "1",
+    "name": "Set de Stickers",
+    "price": 1990,
+    "description": "set de 100 sticker variados",
+    "img": "assets/img/stickers.png "
+  },
+  {
+    "id": "2",
+    "name": "Lapices Arcoiris",
+    "price": 2990,
+    "description": "Set de 6 plumones,colores arcoiris",
+    "img": "assets/img/lapicesdes.png"
+  },
+  {
+    "id": "3",
+    "name": "Cuaderno Gato",
+    "price": 4990,
+    "description": "Cuaderno cuadriculado 100 hojas",
+    "img": "assets/img/cuadernogato.png"
+  },
+  {
+    "id": "4",
+    "name": "Estuche Rosa",
+    "price": 3590,
+    "description": "Estuche rosa diferentes diseños",
+    "img": "assets/img/case.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Lapices Alpaca",
+    "price": 1990,
+    "description": "Lapices con goma forma de alpaca, diversos colores",
+    "img": "assets/img/lapicesalpaca.png"
+  },
+  {
+    "id": "6",
+    "name": "Lapices diseño Conejo",
+    "price": 1990,
+    "description": "Lapices de tinta diferentes colores",
+    "img": "assets/img/lapicesconejo.png "
+  },
+  {
+    "id": "7",
+    "name": "Set 10 Lapices grafito",
+    "price": 2990,
+    "description": "Set 10 lapices grafito diferentes diseños",
+    "img": "/assets/img/lapicesgrafito.png "
+  },
+
+  {
+    "id": " 8",
+    "name": "Post-it Pingüino",
+    "price": 4990,
+    "description": "Set de post-it Pingüino diferentes tamaos",
+    "img": "assets/img/postit.png"
+  }
+]
