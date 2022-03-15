@@ -56,6 +56,20 @@ footer {
 footer a {
   text-decoration: none;
 }
+.swal-icon {
+  width: 15rem;
+  height: 15rem;
+}
+
+.swal-text {
+  margin-top: -1rem;
+  text-align: center;
+  font-size: 20px;
+}
+.swal-button {
+  background-color: hsl(325, 2%, 57%);
+  margin-right: 10rem;
+}
 @media (min-width: 576px) {
   .collapse {
     margin-left: -2rem;

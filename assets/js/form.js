@@ -20,7 +20,7 @@ function post() {
   } else {
     localStorage.setItem("Users", JSON.stringify(personDataBase));
   }
-  divPerson = document.getElementById("prueba");
+
   firstName = document.getElementById("getName").value;
   console.log(firstName);
   lastName = document.getElementById("getLastName").value;
@@ -34,15 +34,13 @@ function post() {
 let personDataBase = [];
 function addData() {
   personDataBase.push(capturePerson);
-  divPerson.innerHTML += `
-    <div id="personDiv" >
-    <img style="width: 5rem; m-auto  " src="assets/img/gatapelualogo1.png" alt="Logo La Gata Pelúa" /
-        <div ><h4> Hola Pronto nos pondremos en contacto contigo al correo ${capturePerson.mail}</h4></div>
-            <div >
-                <button id="boton" class="btn btn-danger">Eliminar</button>
-            </div>
-        </div>
-        `;
+
+  swal({
+    title: "¡Hola!",
+    text: ` Pronto nos pondremos en contacto contigo al correo ${capturePerson.mail} `,
+    icon: "assets/img/gatapelualogo1.png",
+    button: "Entendido!",
+  });
 }
 
 function cleanInput() {
