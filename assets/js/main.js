@@ -7,11 +7,23 @@ const templateShoppingCart = document.getElementById(
   "template-ShoppingCart"
 ).content;
 let shoppingCart = {};
+// El evento DOMContentLoaded es disparado cuando el documento HTML ha sido completamente cargado y parseado
+
+items.addEventListener('click', e => { ActionIncreaseDecrease(e) })
+document.addEventListener('DOMContentLoaded', e => { fetchData()
+    if (localStorage.getItem('shoppingCart')) {
+       shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'))
+        printShoppingCart()
+    }
+}); 
+
 
 // Se pintan en pantalla cada producto con su descripción y precio
-fetch("assets/js/data.json")
-  .then((res) => res.json())
-  .then((data) => {
+ const fetchData = async () => {
+    const res = await fetch('assets/js/data.json');
+    const data = await res.json()
+    // console.log(data)
+    printShoppingCart(data)
     data.forEach((arrayDataProducts) => {
       templateCard.querySelector("button").dataset.id = arrayDataProducts.id;
       templateCard.querySelector("h5").textContent = arrayDataProducts.name;
@@ -29,7 +41,7 @@ fetch("assets/js/data.json")
 
       cards.appendChild(fragment);
     });
-  });
+  }
 
 // separa  el evento click de los botones añadir mesa
 cards.addEventListener("click", (e) => {
@@ -91,6 +103,9 @@ const printShoppingCart = () => {
   items.appendChild(fragment);
 
   printTotal();
+
+  
+    localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
 };
 //Función para imprimir total de suma de productos seleccionados para comprar
 const printTotal = () => {
@@ -116,4 +131,33 @@ const printTotal = () => {
   fragment.appendChild(clone);
 
   total.appendChild(fragment);
+
+  const EmptyCart = document.getElementById("empty-cart")
+   EmptyCart.addEventListener("click",() => {
+  shoppingCart = {};
+  printShoppingCart();
+
+   })
 };
+
+const ActionIncreaseDecrease = e => {
+    // console.log(e.target.classList.contains('btn-secondary'))
+    if (e.target.classList.contains('btn-secondary')) {
+        const product = shoppingCart[e.target.dataset.id]
+        product.quantity++
+        shoppingCart[e.target.dataset.id] = { ...product }
+         printShoppingCart();
+    }
+  
+    if (e.target.classList.contains('btn-danger')) {
+        const product= shoppingCart[e.target.dataset.id]
+        product.quantity--
+        if (product.quantity === 0) {
+            delete shoppingCart[e.target.dataset.id]
+        } else {
+          shoppingCart[e.target.dataset.id] = {...product}
+        }
+         printShoppingCart()
+    }
+    e.stopPropagation()
+  }
