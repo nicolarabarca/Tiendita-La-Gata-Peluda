@@ -132,3 +132,19 @@ const ActionIncreaseDecrease = e => {
     }
     e.stopPropagation()
   }
+
+  const ComprarButon = document.querySelector(".btn-secondary");
+  ComprarButon.addEventListener("click" , comprar)
+
+  function comprar() {
+    Items.innerHTML= "";
+    Total.innerHTML= "";
+    if(comprar) {
+       swal({
+    title: "¡Compra exitosa!",
+    text: ` Recibiras tu compra dentro de los 3 siguientes dias habiles `,
+    icon: "assets/img/gatapelualogo1.png",
+    button: "Entendido!",
+  });
+}
+  }
