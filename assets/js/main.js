@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', e => { FetchData()
 }); 
 // Se pintan en pantalla cada producto con su descripción y precio
  const FetchData = async () => {
-    const Res = await fetch('assets/js/Data.json');
+    const Res = await fetch('assets/js/data.json');
     const Data = await Res.json()
     PrintShoppingCart(Data)
     Data.forEach((arrayDataProducts) => {
