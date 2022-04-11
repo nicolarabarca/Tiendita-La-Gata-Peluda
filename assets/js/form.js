@@ -3,6 +3,15 @@
 // id boton eviar  datos para hacer confirmaciòn
 const buttonSend = document.getElementById("send");
 buttonSend.addEventListener("click", post, false);
+//VALIDACIÒN FORMULARIO
+const ValidationAccess = document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+    document
+      .getElementById("applicationForm")
+      .addEventListener("submit", validateForm);
+  }
+);
 
 // Captura datos de formulario de contacto
 function post() {
@@ -14,7 +23,6 @@ function post() {
       this.comment = comment;
     }
   }
-
   if (localStorage.getItem("Users")) {
     personDataBase = JSON.parse(localStorage.getItem("Users"));
   } else {
@@ -33,7 +41,6 @@ function post() {
 let personDataBase = [];
 function addData() {
   personDataBase.push(capturePerson);
-
   swal({
     title: "¡Hola!",
     text: ` Pronto nos pondremos en contacto contigo al correo ${capturePerson.mail} `,
@@ -46,17 +53,6 @@ function cleanInput() {
   setTimeout("document.applicationForm.reset()", 100);
   return false;
 }
-
-//VALIDACIÒN FORMULARIO
-
-const validationAccess = document.addEventListener(
-  "DOMContentLoaded",
-  function () {
-    document
-      .getElementById("applicationForm")
-      .addEventListener("submit", validateForm);
-  }
-);
 
 function validateForm(event) {
   event.preventDefault();

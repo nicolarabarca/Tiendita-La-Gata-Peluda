@@ -70,6 +70,8 @@ footer a {
   background-color: hsl(325, 2%, 57%);
   margin-right: 10rem;
 }
+
+
 @media (min-width: 576px) {
   .collapse {
     margin-left: -2rem;

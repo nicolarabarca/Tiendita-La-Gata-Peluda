@@ -18,7 +18,6 @@
       crossorigin="anonymous"
     />
     <!-- Cierre Bootstrap@5.1.3 CSS -->
-
     <script src="https://kit.fontawesome.com/e72ea05806.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -28,7 +27,6 @@
   <!-- Cierre Head -->
   <body>
     <!-- Apertura Navbar -->
-
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
       <div class="container">
         <a class="navbar-brand text-dark" href="#">
@@ -51,43 +49,34 @@
         <div
           class="collapse navbar-collapse  "
           id="navbarText"
-          
         >
           <ul class="navbar-nav ms-auto me-md-3 mt-lg-4">
             <li class="nav-item text-center">
               <a class="nav-link text-muted" href="#beginning">Inicio</a>
             </li>
-            
             <li class="nav-item text-center">
               <a class="nav-link text-muted" href="#outstanding">Productos</a>
             </li><li class="nav-item text-center">
               <a class="nav-link text-muted" href="#whoarewe">Descuentos</a>
             </li>
-
             <li class="nav-item text-center">
               <a class="nav-link text-muted" href="#contact">Contacto</a>
             </li>
             <li class="nav-item text-center">
               <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" href="#BuyCard"><i class="fas fa-shopping-cart text-muted"></i></a>
             </li>
-            
-
           </ul>
-          
         </div>
       </div>
     </nav>
     <!-- Cierre nav -->
     <!-- Apertura Carrito de compras -->
-    
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 id="offcanvasRightLabel" class="pt-4 ">Carrito de compras</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-         
-            
               <hr>
               <table class="table">
                 <thead>
@@ -99,25 +88,18 @@
                     <th scope="col">Total</th>
                   </tr>
                 </thead>
-                <tbody id="items"></tbody>
+                <tbody id="Items"></tbody>
                 <tfoot>
                   <tr id="printTotal">
                     <th scope="row" colspan="5">Tu Carrito esta vacío </th>
                   </tr>
                 </tfoot>
               </table>
-            
-            
-         
           <div class="d-grid gap-2 col-6 mx-auto">
-      <button class="btn btn-secondary" type="button">Comprar</button>
-
-      
+      <button class="btn btn-secondary" type="button" id="Comprar">Comprar</button>
       </div>
         </div>
       </div>
-      </section>
-      
   <template id="template-ShoppingCart">
     <tr>
       <th scope="row">id</th>
@@ -130,12 +112,10 @@
           <button class="btn btn-secondary btn-sm">
               +
           </button>
-          
       </td>
       <td>$ <span>990</span></td>
     </tr>
   </template>
-
   <template id="template-total">
     <th scope="row" colspan="2">Total productos</th>
     <td>10</td>
@@ -147,7 +127,6 @@
     <td class="font-weight-bold">$ <span>5000</span></td>
 </template>
     <!-- Cierre Carro de compras  -->
-
     <!-- Apertura Carousel -->
     <section id="beginning" class="container py-5"> 
       <div
@@ -199,52 +178,35 @@
       </div>
     </section>
     <!-- Cierre Carousel -->
-   
-
     <!-- Apertura Cards Productos -->
     <section id="outstanding" class="container text-center text-black py-5">
       <div class="mb-5">
         <h5 class="text-dark">Productos <i class="far fa-star"></i></h5>
-        
-        <hr  />
+        <hr/>
       </div>
       <div class="container">
-        <div class="row" id="cards">
-       
-          
-              
-    
-         
-                
-          
-         
-              
-              
+        <div class="row" id="cards">  
         </div>
       </div>
     </section>
-    <template id="template-card"><div class="col-12 col-md-3 my-3">
+   <template id="template-card"><div class="col-12 col-md-3 my-3">
       <div class="card  opacity-75 border-light">
-        <img src="assets/img/lapicesalpaca.png" class="card-img-top" alt="" />
-        <div class="card-body">
-          
-          <h5 class="card-text mb-0 fw-light">titulo</h5>
-          <p class="card-text mt-0 fw-light">
-           descripcion
-          </p>
-          <hr />
-          <h6 class="text-center fw-light fs-6 mt-3">
-            $45.990
-          </h6>
-          <button  class="btn btn-secondary">Añadir al carrito</button>
-        </div></template>
+           <img src="assets/img/lapicesalpaca.png" class="card-img-top" alt=""/>
+          <div class="card-body">
+              <h5 class="card-text mb-0 fw-light">titulo</h5>
+              <p class="card-text mt-0 fw-light">descripción</p>
+              <hr/>
+              <h6 class="text-center fw-light fs-6 mt-3">$45.990</h6>
+              <button  class="btn btn-secondary">Añadir al carrito</button>
+           </div>
+       </div>
+   </template>
     <!-- Cierre Cards Productos -->
     <!-- Apertura Contacto -->
-    <form name="applicationForm"
+  <form name="applicationForm"
     id="applicationForm" class="container text-center py-5" method="post">
       <div class="mb-5">
         <h5 class="text-dark">Contacto</h5>
-
         <hr  />
         <div class="row">
           <div class="col-12 col-md-6 mt-2">
@@ -253,34 +215,28 @@
           <div class="col-12 col-md-6 mt-2">
             <input id="getLastName" type="text" class="form-control" placeholder="Apellido" aria-label="Last name">
           </div>
-          <div >
-            <label for="exampleFormControlInput1" class="form-label mt-2">Correo Electrónico</label>
+          <div>
+            <label class="form-label mt-2">Correo Electrónico</label>
             <input id="getMail" type="email" class="form-control"  placeholder="nombre@ejemplo.com">
           </div>
         </div>
         
-        <div >
-          <label for="exampleFormControlTextarea1" class="form-label mt-2">Escribe tu comentario aquí</label>
+        <div>
+          <label class="form-label mt-2">Escribe tu comentario aquí</label>
           <textarea id= "getComment" class="form-control" i rows="3"></textarea>
         </div>
-        <input id="termFocus" type="checkbox" name="terms" value="aceptado" />
-        He leido y acepto las condiciones del privacidad de datos <br /><br />
-        
+        <input id="termFocus" type="checkbox" name="terms" value="aceptado"/> He leido y acepto las condiciones del privacidad de datos <br /><br />
+      </div>
     <!-- Button trigger modal -->
-<button id="send" type="submit" class="btn btn-secondary mt-2">
-Enviar
-</button>
-
-
-      
-      </form>
+      <button id="send" type="submit" class="btn btn-secondary mt-2">Enviar </button>
+  </form>
     <!-- Cierre Contacto -->
      
 <div id="prueba"></div>
     <!--Apertura Footer -->
-    <footer class=" text-center py-5 mt-5 bg-opacity-75">
-      <div class="container">
-        <div class="row">
+ <footer class=" text-center py-5 mt-5 bg-opacity-75">
+   <div class="container">
+      <div class="row">
           <div class="col-12 col-sm-12">
             <p>
               <img 
@@ -288,22 +244,20 @@ Enviar
                 src="assets/img/gatapelualogo1.png"
                 alt="Logo La Gata Pelúa"
               />
-              
             </p>
-            <div>
-            <a href="#"><i class="fab fa-github-square fa-3x mx-2 text-muted "></i></a>
-            <a href="#"><i class="fab fa-linkedin fa-3x mx-2 text-muted "></i></a>
-            <a href="#"><i class="fab fa-twitter-square fa-3x mx-2 text-muted "></i></a>
-            <a href="#"><i class="fab fa-facebook-square fa-3x mx-2 text-muted "></i></a>
-            
-          </div>
-          </div>
-          </div>
+             <div>
+                <a href="#"><i class="fab fa-github-square fa-3x mx-2 text-muted "></i></a>
+                <a href="#"><i class="fab fa-linkedin fa-3x mx-2 text-muted "></i></a>
+                <a href="#"><i class="fab fa-twitter-square fa-3x mx-2 text-muted "></i></a>
+                <a href="#"><i class="fab fa-facebook-square fa-3x mx-2 text-muted "></i></a>
+             </div>
+         </div>
+       </div>
 
             
-        </div>
-      </div>
-    </footer>
+    
+    </div>
+  </footer>
     <!--Cierre Footer -->
 
     <!-- Bootstrap Bundle with Popper -->
@@ -312,21 +266,14 @@ Enviar
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    <!-- Apertura jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.js"
-      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-      crossorigin="anonymous"
-    ></script>
-    <!-- Cierre jQuery -->
+  <!-- Cierre Bootstrap Bundle with Popper -->
      <!--Apertura sweetalert-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
  <!-- Cierre sweetalert -->
  <!-- Apertura toastify -->
- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
  <!-- Cierre toastify -->
-    <!-- Cierre Bootstrap Bundle with Popper -->
-    <script src="assets/js/jQuery.js"></script>
+ <!-- Cierre Bootstrap Bundle with Popper -->
     <script src="assets/js/form.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
